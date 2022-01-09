@@ -1,5 +1,5 @@
 # sgfpy
-## Library for reading and writing with SGF (Smart Go Format) strings
+## Library for reading and writing SGF (Smart Go Format) strings
 
 Reading:
 ```python
