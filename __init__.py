@@ -1,8 +1,10 @@
-from .SgfNode import SgfNode
-from .SgfTree import SgfTree
+from .sources.sgf_node import SgfNode
+from .sources.sgf_reader import SgfReader
+from .sources.sgf_writer import SgfWriter
 
 
 __all__ = [
     'SgfNode',
-    'SgfTree',
+    'SgfReader',
+    'SgfWriter'
 ]

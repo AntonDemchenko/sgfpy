@@ -1,4 +1,4 @@
-from .OrderedMultiDict import OrderedMultiDict
+from .ordered_multi_dict import OrderedMultiDict
 
 
 class SgfNode:
@@ -42,3 +42,9 @@ class SgfNode:
         child.parent = None
         child.prev_sibling = None
         child.next_sibling = None
+
+    def children(self):
+        child = self.first_child
+        while child is not None:
+            yield child
+            child = child.next_sibling

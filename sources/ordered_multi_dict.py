@@ -28,7 +28,7 @@ class OrderedMultiDict:
             filter(lambda p: p[0] == key, self.container)
         ))
 
-    def first_value_of(self, key):
+    def value_of(self, key):
         return self.values_of(key)[0]
 
     def __len__(self):

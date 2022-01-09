@@ -1,6 +1,6 @@
 import unittest
 
-from PySgf.SgfNode import SgfNode
+from sources.sgf_node import SgfNode
 
 
 class TreeTest(unittest.TestCase):
@@ -11,6 +11,7 @@ class TreeTest(unittest.TestCase):
         self.assertIsNone(node.last_child)
         self.assertIsNone(node.prev_sibling)
         self.assertIsNone(node.next_sibling)
+        self.assertEqual(len(list(node.children())), 0)
     
     def test_parent_and_child(self):
         parent = SgfNode()
@@ -19,6 +20,7 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(child.parent, parent)
         self.assertEqual(parent.first_child, child)
         self.assertEqual(parent.last_child, child)
+        self.assertEqual(len(list(parent.children())), 1)
 
     def test_parent_and_two_children(self):
         parent = SgfNode()
@@ -29,6 +31,7 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(parent.last_child, child2)
         self.assertEqual(child1.next_sibling, child2)
         self.assertEqual(child2.prev_sibling, child1)
+        self.assertEqual(len(list(parent.children())), 2)
 
     def test_detach(self):
         parent = SgfNode()
@@ -52,6 +55,7 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(parent.first_child, child2)
         self.assertEqual(parent.last_child, child2)
         self.assertIsNone(child2.prev_sibling)
+        self.assertEqual(len(list(parent.children())), 1)
 
     def test_detach_last_child(self):
         parent = SgfNode()
@@ -62,6 +66,7 @@ class TreeTest(unittest.TestCase):
         self.assertEqual(parent.first_child, child1)
         self.assertEqual(parent.last_child, child1)
         self.assertIsNone(child1.next_sibling)
+        self.assertEqual(len(list(parent.children())), 1)
 
     def test_reattach(self):
         parent1 = SgfNode()
@@ -74,3 +79,5 @@ class TreeTest(unittest.TestCase):
         self.assertIsNone(parent1.last_child)
         self.assertEqual(parent2.first_child, child)
         self.assertEqual(parent2.last_child, child)
+        self.assertEqual(len(list(parent1.children())), 0)
+        self.assertEqual(len(list(parent2.children())), 1)

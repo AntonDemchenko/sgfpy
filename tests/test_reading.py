@@ -1,7 +1,7 @@
 import unittest
 
-from PySgf.OrderedMultiDict import OrderedMultiDict
-from PySgf.SgfTree import SgfTree
+from sources.ordered_multi_dict import OrderedMultiDict
+from sources.sgf_reader import SgfReader
 
 
 class SgfWalker:
@@ -23,11 +23,12 @@ class SgfWalker:
 
 
 def parse(sgf):
-    tree = SgfTree.from_string(sgf)
-    return tree.root if tree else None
+    reader = SgfReader()
+    root = reader.read(sgf)
+    return root
 
 
-class ParsingTest(unittest.TestCase):
+class ReadingTest(unittest.TestCase):
     def test_minimal_sgf(self):
         sgf = r'(;)'
         root = parse(sgf)
