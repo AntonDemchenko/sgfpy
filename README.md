@@ -27,20 +27,20 @@ root.properties.erase(prop_key)  # Erase property
 
 Tree building:
 ```python
-    root = SgfNode()
-    child = SgfNode(root)  # create node and attach it to root
-    node = SgfNode()
-    node.attach_to(root)  # attach node to root
-    child.detach()  # detach node from root
+root = SgfNode()
+child = SgfNode(root)  # create node and attach it to root
+node = SgfNode()
+node.attach_to(root)  # attach node to root
+child.detach()  # detach node from root
 ```
 
 Tree traversal:
 ```python
-    node = SgfNode()
-    node.parent  # parent of node
-    node.children()  # node's children
-    node.first_child  # first child of node
-    node.last_child  # last child of node
-    node.prev_sibling  # left sibling of node in parent's children list
-    node.next_sibling  # right sibling of node in parent's children list
+node = SgfNode()
+node.parent  # parent of node
+node.children()  # node's children
+node.first_child  # first child of node
+node.last_child  # last child of node
+node.prev_sibling  # left sibling of node in parent's children list
+node.next_sibling  # right sibling of node in parent's children list
 ```
